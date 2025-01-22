@@ -13,15 +13,12 @@ get("/") do
 end
 
 get("/dice/2/6") do
-  @rolls = []
-
-  2.times do
-    die = rand(1..6)
-
-    @rolls.push(die)
-  end
-
-  
+  first_die = rand(1..6)
+  second_die = rand(1..6)
+  sum = first_die + second_die
+	
+  @outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
+	
   erb(:two_six)
 end
 
@@ -38,14 +35,9 @@ get("/dice/2/10") do
 end
 
 get("/dice/1/20") do
-  @rolls = []
+  @die = rand(1..20)
 
-  1.times do
-    die = rand(1..20)
-
-    @rolls.push(die)
-  end
-
+  @outcome = "You rolled a #{@die}."
 
   erb(:one_twenty)
 end
